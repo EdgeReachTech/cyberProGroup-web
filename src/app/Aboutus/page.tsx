@@ -1,4 +1,5 @@
 "use client";
+import Head from "next/head";
 import Image from "next/image";
 import { Team } from "@/types/types";
 import House from "../../Images/House.jpeg";
@@ -17,6 +18,10 @@ const Aboutus = () => {
   const { language, theme } = useAppContext();
   const [team, setTeam] = useState<Team[]>([]);
   const [isLoadingTeam, setIsLoadingTeam] = useState(false);
+  const title = "About CyberPro Group - Leading Cybersecurity Solutions"; 
+const description = "CyberPro Group is dedicated to enhancing online safety through professional cybersecurity training, expert consulting, and CCTV security solutions. Learn about our mission and impact in the global cybersecurity landscape."; 
+const keywords = "CyberPro Group, cybersecurity training, CyberPro Academy, cybersecurity consulting, CCTV security solutions, online safety, Africa, risk mitigation, information security"; 
+
 
   const fetchData = async (
     endpoint: string,
@@ -39,6 +44,13 @@ const Aboutus = () => {
   }, []);
 
   return (
+    <>
+      {/* SEO metadata for this page */}
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
+      </Head>
     <div className={`${theme === "dark" ? "bg-slate-700" : "bg-white"} pb-10`}>
       <section
         className="relative pt-52 pb-32"
@@ -237,6 +249,7 @@ const Aboutus = () => {
         </>
       </div>
     </div>
+    </>
   );
 };
 

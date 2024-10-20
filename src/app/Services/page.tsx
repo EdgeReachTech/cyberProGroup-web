@@ -1,4 +1,5 @@
 "use client";
+import Head from "next/head";
 import Image from "next/image";
 import download from "../../Images/download.jpeg";
 import MyImagee from "../../Images/MyImagee.jpeg";
@@ -10,6 +11,9 @@ import { useEffect } from "react";
 
 const Services = () => {
   const { language, theme } = useAppContext();
+  const title = "CyberPro Group Services - Comprehensive Cybersecurity Solutions"; 
+  const description = "Explore the services offered by CyberPro Group, including expert cybersecurity training, consulting for organizations, and advanced CCTV security solutions to enhance online safety."; 
+  const keywords = "CyberPro Group services, cybersecurity training, CyberPro Academy, cybersecurity consulting, CCTV security solutions, online safety, risk mitigation, information security"; 
 
   useEffect(() => {
     document.addEventListener("DOMContentLoaded", () => {
@@ -27,6 +31,13 @@ const Services = () => {
   }, []);
 
   return (
+    <>
+      {/* SEO metadata for the services page */}
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
+      </Head>
     <div className={`${theme === "dark" ? "bg-slate-700" : ""}   `}>
       <section
         className="  max-md:w-screen  h-auto relative -top-36  pt-64 pb-32 leading-10 -mb-32 lg:pl-[50px]  pl-[5px] "
@@ -544,6 +555,7 @@ const Services = () => {
         </section>
       </div>
     </div>
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
 "use client";
+import Head from "next/head";
 import React, { useState } from "react";
 import Image from "next/image";
 
@@ -27,6 +28,9 @@ const Contactus = () => {
     type: "message",
   });
   const [errors, setErrors] = useState<Errors>({});
+  const title = "Contact CyberPro Group - Get in Touch with Our Cybersecurity Experts"; 
+  const description = "Reach out to CyberPro Group for inquiries about our cybersecurity training, consulting services, or CCTV solutions. Our team is here to help you enhance your online safety."; 
+  const keywords = "contact CyberPro Group, cybersecurity training inquiries, cybersecurity consulting, CCTV security solutions, reach out to cybersecurity experts, online safety support";
 
   const validateInputs = () => {
     const newErrors: Errors = {};
@@ -74,9 +78,17 @@ const Contactus = () => {
   const handleOnChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setInput({ ...input, [event.target.name]: event.target.value });
+    setInput({ ...input, [event.target.name]: event.target.value }); 
+
   };
   return (
+    <>
+      {/* SEO metadata for the contact page */}
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
+      </Head>
     <div
       className={` ${
         theme === "dark" ? "bg-slate-700" : ""
@@ -271,6 +283,7 @@ const Contactus = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

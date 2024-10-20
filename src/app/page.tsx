@@ -1,5 +1,6 @@
 "use client";
 
+import Head from "next/head";
 import { countries, posts } from "@/components/homepage/constant";
 import React, { useEffect, useState } from "react";
 import {
@@ -32,6 +33,9 @@ import { AboutUsLang } from "@/lib/languageAbout";
 import TestimonySlideshow from "@/components/slider";
 
 const Home = () => {
+  const title = "CyberPro Group - Your Partner in Cybersecurity Solutions"; 
+  const description = "CyberPro Group offers professional cybersecurity training, expert consulting services, and advanced CCTV security solutions to help organizations enhance their online safety."; 
+  const keywords = "CyberPro Group, cybersecurity solutions, cybersecurity training, CyberPro Academy, cybersecurity consulting, CCTV security solutions, online safety, risk mitigation";
   const { language, theme } = useAppContext();
   const [data, setData] = useState(englishContent);
   const [portfolio, setPortfolio] = useState<Project[]>([]);
@@ -48,6 +52,8 @@ const Home = () => {
   const getPercentage = (arr: { value: number }[], target: number): number => {
     const total = arr.length;
     const count = arr.filter((rate) => rate.value === target).length;
+   
+
 
     if (total === 0) return 0;
 
@@ -94,6 +100,13 @@ const Home = () => {
   }, []);
 
   return (
+    <>
+      {/* SEO metadata for the homepage page */}
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
+      </Head>
     <div className={`${theme === "dark" ? "bg-slate-700" : ""}`}>
       <div
         className={`h-fit pb-10 relative -top-36 pt-72 lg:flex  ${
@@ -765,6 +778,7 @@ const Home = () => {
         <PartnerLogos />
       </div>
     </div>
+    </>
   );
 };
 
