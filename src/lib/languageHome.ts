@@ -38,7 +38,7 @@ export const englishContent = {
   fAll: "VIEW ALL",
   testimonialTitle: "TESTIMONIAL",
   customerReviews: "CUSTOMER REVIEWS",
-  rateUs: "rate us",
+  rateUs: "Rate us",
   rateUsSubtitle: "FROM 1 TO 5",
   choose: "CHOOSE",
   ourStaffTitle: "OUR STAFF",
@@ -51,6 +51,7 @@ export const englishContent = {
   whatsNew: "WHAT'S NEW?",
   latestBlog: "OUR LATEST FROM BLOG",
   viewMore: "VIEW MORE",
+  promise: "Secure your premises",
 };
 
 export const frenchContent = {
@@ -103,5 +104,6 @@ export const frenchContent = {
   whatsNew: "QUOI DE NEUF ?",
   latestBlog: "NOTRE DERNIER BLOG",
   viewMore: "VOIR PLUS",
+  promise: "Sécuriser vos locaux",
 };
 

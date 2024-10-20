@@ -2,42 +2,37 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import shape from "../../assets/shape12.png";
-import profile from "../../assets/profile (1).png";
 import status from "../../assets/status.png";
 import { useAppContext } from "@/context/appContext";
 import axios from "axios";
 import { Project } from "@/lib/types";
 import { BASE_URL } from "@/context/api";
 
-
-   
-  
-
 const CardList: React.FC = () => {
-  const { theme} = useAppContext();
+  const { theme } = useAppContext();
   const [, setIsLoadingPortifolio] = useState(false);
   const [portfolio, setPortfolio] = useState<Project[]>([]);
 
- const fetchData = async (
-   endpoint: string,
-   //@ts-expect-error error
-   setStateFunc: React.Dispatch<React.SetStateAction<>>,
-   setLoadingFunc: React.Dispatch<React.SetStateAction<boolean>>
- ) => {
-   try {
-     setLoadingFunc(true);
-     const response = await axios.get(`${BASE_URL}/${endpoint}`);
-     setStateFunc(response.data);
-   } catch (error) {
-     console.error(`Error fetching ${endpoint}:`, error);
-   } finally {
-     setLoadingFunc(false);
-   }
- };
+  const fetchData = async (
+    endpoint: string,
+    //@ts-expect-error error
+    setStateFunc: React.Dispatch<React.SetStateAction<>>,
+    setLoadingFunc: React.Dispatch<React.SetStateAction<boolean>>
+  ) => {
+    try {
+      setLoadingFunc(true);
+      const response = await axios.get(`${BASE_URL}/${endpoint}`);
+      setStateFunc(response.data);
+    } catch (error) {
+      console.error(`Error fetching ${endpoint}:`, error);
+    } finally {
+      setLoadingFunc(false);
+    }
+  };
 
-useEffect(() => {
-  fetchData("project", setPortfolio, setIsLoadingPortifolio);
-}, []);
+  useEffect(() => {
+    fetchData("project", setPortfolio, setIsLoadingPortifolio);
+  }, []);
 
   return (
     <div
@@ -52,8 +47,11 @@ useEffect(() => {
           theme === "dark" ? "bg-gray-800" : "bg-white"
         } min-h-screen flex flex-col justify-start pt-10`}
       >
-        {portfolio.map((project,index) => (
-          <div key={index} className="flex flex-col gap-6 w-full max-w-4xl  flex-grow ">
+        {portfolio.map((project, index) => (
+          <div
+            key={index}
+            className="flex flex-col gap-6 w-full max-w-4xl  flex-grow "
+          >
             <div className="flex flex-col items-center md:items-start lg:items-start md:flex-row px-5 md:px-10 mb-8 gap-10">
               <div className="flex flex-col">
                 <div className="bg-slate-300 min-w-[380px] h-[320px] md:max-w-[400px] lg:max-w-[450px] overflow-hidden rounded-lg shadow-xl relative flex-shrink-0 cursor-pointer transition-transform duration-300 hover:scale-105">
@@ -68,15 +66,19 @@ useEffect(() => {
                 <div className="flex gap-2 mt-2 md:mt-4">
                   <Image src={shape} alt="shape image" width={5} />
                   <p className="text-[10px] font-light text-gray-600 italic">
-                    Uploaded on:{" "}
+                    Uploaded on:{""}
                     <span className="font-bold text-[#1abc9c] transition-all duration-300 ease-in-out hover:text-black">
-                      {project.createdAt}
+                      {new Date(project.createdAt).toLocaleTimeString()}
                     </span>
                   </p>
                 </div>
               </div>
               <div className="pt-4 flex flex-col items-center md:items-start md:pl-6 min-w-[300px]">
-                <h1 className="font-merriweather mt-3 font-bold text-[20px] md:text-[24px] lg:text-[30px] text-[#1B396E]">
+                <h1
+                  className={`font-merriweather mt-3 font-bold text-[20px] md:text-[24px] lg:text-[30px] text-[#1B396E] ${
+                    theme === "dark" ? "text-teal-600" : "text-[#1B396E]"
+                  }`}
+                >
                   {project.title}
                 </h1>
                 <div className="relative flex flex-row cursor-pointer mt-2 md:mt-4 transition-all duration-300 ease-in-out group">
@@ -87,30 +89,21 @@ useEffect(() => {
                     className="mt-1"
                   />
                   <p className="text-black font-semibold pl-2 hover:text-[#1abc9c]">
-                    {project.status}
-                  </p>
-                  <div className="absolute md:min-w-64 top-full left-0 mt-1 ml-2 px-4 py-2 bg-gray-200 text-gray-600 text-[12px] font-roboto rounded shadow-lg opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100 pointer-events-none z-20">
-                    <p>{project.timeRange}</p>
-                  </div>
-                </div>
-
-                <div className="relative flex flex-row cursor-pointer mt-2 md:mt-4 transition-all duration-300 ease-in-out group">
-                  <Image
-                    src={profile}
-                    alt="profile logo"
-                    width={30}
-                    className="mt-1"
-                  />
-                  <p className="mt-1 ml-2 hover:text-[#1abc9c]">
-                    {project.customer}
+                    {project.company}
                   </p>
                 </div>
 
-                <div className="mt-4 flex flex-col items-center md:items-start">
+                <div className="mt-4  text-black flex flex-col items-center md:items-start">
                   <h1 className="font-roboto text-xl font-bold pb-2">
                     Project Summary
                   </h1>
-                  <p>{project.content}</p>
+                  <p
+                    className={`${
+                      theme === "dark" ? "text-black" : "text-white"
+                    }`}
+                  >
+                    {project.content}
+                  </p>
                 </div>
               </div>
             </div>

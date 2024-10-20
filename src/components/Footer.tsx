@@ -1,5 +1,4 @@
 "use client";
-import { MdOutlineEmail } from "react-icons/md";
 import { SiSpringsecurity } from "react-icons/si";
 import Link from "next/link";
 import {
@@ -9,36 +8,33 @@ import {
   NavigationItemsRoutes,
 } from "./HeaderAndFooter/constant";
 import "./HeaderAndFooter/style.css";
-import { FaPinterestP } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
+import { FaEnvelope, FaTiktok, FaYoutube } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
-import { usePathname } from "next/navigation";
 import { useAppContext } from "@/context/appContext";
 import { useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "@/context/api";
 import { toast } from "react-toastify";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   const { language } = useAppContext();
   const [email, setEmail] = useState("");
-  // const [loading, setLoading] = useState(false);
-  const pathname = usePathname();
-  if (pathname === "/registration") return null;
+  const [loading, setLoading] = useState(false);
+
   const handleSubscribe = async () => {
     try {
-      // setLoading(true)
+      setLoading(true);
       const response = await axios.post(`${BASE_URL}/user/subscribe`, {
         email,
       });
       toast.success(response.data.message);
     } catch (error) {
-      toast.error("failed to subscribe");
-    }finally{
-      // setLoading(false)
+      toast.error("failed! try again ");
+    } finally {
+      setLoading(false);
     }
   };
   return (
@@ -77,7 +73,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="md:mx-auto both-one">
+            <div className="md:mx-auto ">
               <div className="mt-3 footer-container">
                 <h1 className="text-[#1ABC9C]">
                   {language === "en" ? "USEFUL LINKS" : "LIENS UTILES"}
@@ -86,7 +82,11 @@ const Footer = () => {
               </div>
               <div className="flex flex-col gap-2 mt-2 text-white text-xl footer-container">
                 {NavigationItemsRoutes.map((navigationRoute, index) => (
-                  <Link href={navigationRoute.path} key={index}>
+                  <Link
+                    href={navigationRoute.path}
+                    key={index}
+                    className="hover:text-blue-400"
+                  >
                     {navigationRoute[language as keyof NavigationItem]}
                   </Link>
                 ))}
@@ -104,7 +104,7 @@ const Footer = () => {
                 const Icon = contact.icon;
                 return (
                   <div key={index}>
-                    <div className="contacts flex items-center  gap-2">
+                    <div className="contacts flex justify-between md:items-center   gap-2">
                       <p className="min-w-[100px]">{contact.country}</p>
                       <div className="flex items-center gap-2">
                         <p>
@@ -118,8 +118,8 @@ const Footer = () => {
               })}
             </div>
             <div className="flex gap-3 text-white text-medium sm:text-sm md:text-xl mt-4 w-[100%]">
-              <MdOutlineEmail className="text-xl md:text-3xl text-red-600 bg-white email" />{" "}
-              info@cyberprogroup.com
+              <FaEnvelope className="text-xl md:text-3xl" />{" "}
+              <a href="mailto:info@cyberprogroup.com">info@cyberprogroup.com</a>
             </div>
           </div>
         </div>
@@ -137,7 +137,9 @@ const Footer = () => {
             />
             <button
               onClick={() => handleSubscribe()}
-              className="bg-[#F39C12] py-2 px-4 rounded-lg"
+              className={`${
+                loading ? "bg-slate-400" : "bg-[#F39C12] hover:bg-[#ffe042]"
+              } py-2 px-4 rounded-lg`}
             >
               {language === "en" ? "  SUBSCRIBE" : "S'ABONNER"}
             </button>
@@ -149,22 +151,40 @@ const Footer = () => {
               {language === "en" ? "Follow Us" : "Suivez-nous"}
             </p>
             <div className="flex justify-between items-center gap-2 mt-2">
-              <a href="#">
-                <FaPinterestP />
+              <a
+                className="hover:animate-bounce hover:text-white"
+                href="https://www.tiktok.com/@cyberpro.group.rw?_t=8qR5bmcQDdG&_r=1"
+              >
+                <FaTiktok />
               </a>
-              <a href="#">
-                <FaGithub />
+              <a
+                className="hover:animate-bounce hover:text-white text-red-600"
+                href="#"
+              >
+                <FaYoutube />
               </a>
-              <a href="#">
+              <a
+                className="hover:animate-bounce hover:text-white bg-blue-500"
+                href="https://www.linkedin.com/in/cyberpro-group-rw-aa104932a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+              >
                 <FaLinkedin />
               </a>
-              <a href="#">
+              <a
+                className="hover:animate-bounce hover:text-white text-orange-500"
+                href="https://www.instagram.com/cyberprogrouprw/?next=%2F"
+              >
                 <FaInstagram />
               </a>
-              <a href="#">
-                <FaTwitter />
+              <a
+                className="hover:animate-bounce hover:text-white text-blue"
+                href="https://x.com/CyberProGroupRw?t=q15PgUJVt6-ouzlMSiIa8Q&s=09"
+              >
+                <FaXTwitter />
               </a>
-              <a href="#">
+              <a
+                className="hover:animate-bounce hover:text-white text-blue-400"
+                href="https://www.facebook.com/profile.php?id=61565121267543"
+              >
                 <FaFacebookF />
               </a>
             </div>
@@ -183,7 +203,9 @@ const Footer = () => {
             />
             <button
               onClick={() => handleSubscribe()}
-              className="bg-[#F39C12] py-2 px-4 rounded-lg"
+              className={`${
+                loading ? "bg-slate-400" : "bg-[#F39C12] hover:bg-[#ffe042]"
+              } py-2 px-4 rounded-lg`}
             >
               {language === "en" ? "  SUBSCRIBE" : "S'ABONNER"}
             </button>
@@ -191,28 +213,27 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      {/* 
-      <div className="h-[100px] w-full flex items-end justify-end">
-        <a
-          href="#"
-          className="w-7 h-7 bg-white rounded-full flex items-center justify-center"
-        >
-          <MdArrowUpward className=" w-[30px] h-[30px]" />
-        </a>
-      </div> */}
 
       <div className="px-10 mt-5">
         <div className="bg-blue-900 h-[2px] w-full" />
         <div className="my-5 flex gap-5">
-          <button className="border-r-2 border-r-blue-50 text-white pr-4">
+          <a
+            href="/terms"
+            className="border-r-2 border-r-blue-50 text-white hover:text-gray-400 pr-4"
+          >
             {language === "en"
               ? "Website Terms"
               : "Conditions d'utilisation du site Web"}
-          </button>
-          <button className="border-r-2 border-r-blue-50 text-white pr-4">
+          </a>
+          <a
+            href="/privacy"
+            className="border-r-2 border-r-blue-50 hover:text-gray-400 text-white pr-4"
+          >
             {language ? "Data Privacy" : "Confidentialité des données"}
-          </button>
-          <button className="text-white">FAQs</button>
+          </a>
+          <a href="/faq" className="text-white hover:text-gray-400">
+            FAQs
+          </a>
         </div>
         <div>
           <p className="text-white text-center text-[16px]">
@@ -227,6 +248,15 @@ const Footer = () => {
           </p>
         </div>
       </div>
+      <h1 className="text-teal-400 font-bold text-lg text-center ">
+        Designed and Developed by{" "}
+        <a
+          className="text-[#34b886] hover:text-[#2e7451]"
+          href="https://www.edgereachtech.com"
+        >
+          EdgeReach Tech
+        </a>
+      </h1>
     </div>
   );
 };

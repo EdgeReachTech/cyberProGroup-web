@@ -2,20 +2,32 @@
 import Image from "next/image";
 import download from "../../Images/download.jpeg";
 import MyImagee from "../../Images/MyImagee.jpeg";
-import services from "../../Images/services.jpeg";
 import Teach from "../../Images/Teach.jpg";
 import Values from "../../Images/Values.jpg";
 import { useAppContext } from "@/context/appContext";
 import { ServicesLang } from "@/lib/languageService";
+import { useEffect } from "react";
 
 const Services = () => {
-    const { language, theme } = useAppContext();
+  const { language, theme } = useAppContext();
+
+  useEffect(() => {
+    document.addEventListener("DOMContentLoaded", () => {
+      const targetId = window.location.hash;
+      if (targetId) {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }
+    });
+  }, []);
+
   return (
-    <div
-      className={`${
-        theme === "dark" ? "bg-slate-700" : ""
-      }   max-md:bg-[#b9bebd] max-lg:bg[#BEB9B9]  `}
-    >
+    <div className={`${theme === "dark" ? "bg-slate-700" : ""}   `}>
       <section
         className="  max-md:w-screen  h-auto relative -top-36  pt-64 pb-32 leading-10 -mb-32 lg:pl-[50px]  pl-[5px] "
         style={{
@@ -44,9 +56,8 @@ const Services = () => {
         </div>
       </section>
 
-      {/* training service section content*/}
-      <section className="px-20 max-lg:px-5">
-        <div className=" py-7 ">
+      <section id="service1" className="px-20 max-lg:px-5 space-y-5">
+        <div className=" py-7">
           <h1
             className={` ${
               theme === "dark" ? "text-gray-300" : "text-[#2dc77c]"
@@ -61,6 +72,20 @@ const Services = () => {
           >
             {ServicesLang[language].service1_desc}
           </p>
+          <div className="flex gap-4 w-fit mx-auto">
+            <a
+              href="/registration"
+              className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]"
+            >
+              {ServicesLang[language].apply}
+            </a>
+            <a
+              href="https://app.sycamorecampus.com/"
+              className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]"
+            >
+              {ServicesLang[language].join}
+            </a>
+          </div>
         </div>
 
         <section className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14 max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black  max-lg:p-3 max-md:p-3 mt-3 ">
@@ -74,7 +99,7 @@ const Services = () => {
           <div>
             <h1
               className={` ${
-                theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+                theme === "dark" ? "text-white font-bold" : "text-[#1B396E]"
               }  font-merriweather max-md:p-3 text-[18px] `}
             >
               {ServicesLang[language].subservice1service1}
@@ -86,10 +111,13 @@ const Services = () => {
             >
               {ServicesLang[language].subservice1service1_desc}
             </p>
-            <div>
-              <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-                {ServicesLang[language].viewmore}
-              </button>
+            <div className="flex items-center py-5">
+              <a
+                href="/courses"
+                className="bg-blue-600 hover:bg-blue-800 p-2  w-fit mx-auto lg:mx-20  rounded  text-white"
+              >
+                Read more
+              </a>
             </div>
           </div>
         </section>
@@ -105,7 +133,7 @@ const Services = () => {
           <div>
             <h1
               className={` ${
-                theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+                theme === "dark" ? "text-white font-bold" : "text-[#1B396E]"
               }  max-lg:font-sans  max-md:p-3 font-merriweather text-[18px] `}
             >
               {ServicesLang[language].subservice2service1}
@@ -117,11 +145,6 @@ const Services = () => {
             >
               {ServicesLang[language].subservice2service1_desc}
             </p>
-            <div>
-              <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-                {ServicesLang[language].viewmore}
-              </button>
-            </div>
           </div>
         </section>
 
@@ -136,7 +159,7 @@ const Services = () => {
           <div>
             <h1
               className={` ${
-                theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+                theme === "dark" ? "text-white font-bold" : "text-[#1B396E]"
               }  max-md:p-3 font-merriweather text-[18px] max-lg:font-sans  `}
             >
               {ServicesLang[language].subservice3service1}
@@ -148,11 +171,6 @@ const Services = () => {
             >
               {ServicesLang[language].subservice3service1_desc}
             </p>
-            <div>
-              <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-                {ServicesLang[language].viewmore}
-              </button>
-            </div>
           </div>
         </section>
 
@@ -167,7 +185,7 @@ const Services = () => {
           <div>
             <h1
               className={` ${
-                theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+                theme === "dark" ? "text-white font-bold" : "text-[#1B396E]"
               }  max-md:p-3 font-merriweather text-[18px] max-lg:font-sans  `}
             >
               {ServicesLang[language].subservice4service1}
@@ -179,36 +197,37 @@ const Services = () => {
             >
               {ServicesLang[language].subservice4service1_desc}
             </p>
-            <div>
-              <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-                {ServicesLang[language].viewmore}
-              </button>
-            </div>
           </div>
         </section>
       </section>
-
-      {/* Consultancy service section content */}
-
-      <section className="flex flex-col px-20 max-lg:px-5 justify-start items-start pb-5 gap-4">
-        <div className=" py-7 ">
+      <section
+        id="service2"
+        className="flex flex-col px-20 max-lg:px-5 justify-start items-start pb-5 gap-4  mt-4  max-md:px-5 space-y-5 border-t-2  "
+      >
+        <div className="py-7">
           <h1
             className={` ${
-              theme === "dark" ? "text-gray-300" : "text-[#2dc77c]"
-            }  font-merriweather   text-center text-4xl pb-3`}
+              theme === "dark" ? "text-white font-bold" : "text-[#2dc77c]"
+            }  font-merriweather  lg:border-t-gray-200
+         text-center text-4xl pb-3`}
           >
             {ServicesLang[language].service2}
           </h1>
           <p
             className={` ${
-              theme === "dark" ? "text-gray-300" : ""
-            }  font-merriweather pb-3 text-md`}
+              theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+            }  font-merriweather pb-1 text-md`}
           >
             {ServicesLang[language].service2_desc}
           </p>
         </div>
-
-        <div className="max-md:border-2 max-lg:border-2  max-md:border-black max-lg:w-[100%] max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3">
+        <a
+          href="Contactus"
+          className="bg-[#1B396E] hover:bg-teal-600 w-fit mx-auto rounded max-md:ml-3  p-2  text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]"
+        >
+          Get Expert Advices
+        </a>
+        <div className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3 ">
           <Image
             className="max-sm:w-[400px] max-md:p-3 "
             src={Values}
@@ -219,8 +238,8 @@ const Services = () => {
           <div>
             <h1
               className={` ${
-                theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
-              }  font-merriweather pt-3 text-[18px] max-md:p-3  `}
+                theme === "dark" ? "text-white font-bold" : "text-[#1B396E]"
+              }  font-merriweather text-[18px] max-md:p-3  `}
             >
               {ServicesLang[language].subservice1service2}
             </h1>
@@ -231,15 +250,10 @@ const Services = () => {
             >
               {ServicesLang[language].subservice1service2_desc}
             </p>
-            <div>
-              <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-                {ServicesLang[language].viewmore}
-              </button>
-            </div>
           </div>
         </div>
 
-        <div className="max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3">
+        <div className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3 ">
           <Image
             className="max-sm:w-[400px]"
             src={MyImagee}
@@ -250,27 +264,22 @@ const Services = () => {
           <div>
             <h1
               className={` ${
-                theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
-              }  font-merriweather pt-3 text-[18px] `}
+                theme === "dark" ? "text-white font-bold" : "text-[#1B396E]"
+              }  font-merriweather text-[18px] `}
             >
               {ServicesLang[language].subservice2service2}
             </h1>
             <p
               className={` ${
-                theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+                theme === "dark" ? "text-gray-300" : ""
               }  pt-3 font-roboto max-lg:font-sans  `}
             >
               {ServicesLang[language].subservice2service2_desc}
             </p>
-            <div>
-              <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-                {ServicesLang[language].viewmore}
-              </button>
-            </div>
           </div>
         </div>
 
-        <div className="max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3">
+        <div className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3 ">
           <Image
             className="max-sm:w-[400px]"
             src={MyImagee}
@@ -281,8 +290,8 @@ const Services = () => {
           <div>
             <h1
               className={` ${
-                theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
-              }  font-merriweather pt-3 text-[18px] `}
+                theme === "dark" ? "text-white font-bold" : "text-[#1B396E]"
+              }  font-merriweather text-[18px] `}
             >
               {ServicesLang[language].subservice3service2}
             </h1>
@@ -293,15 +302,10 @@ const Services = () => {
             >
               {ServicesLang[language].subservice3service2_desc}
             </p>
-            <div>
-              <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-                {ServicesLang[language].viewmore}
-              </button>
-            </div>
           </div>
         </div>
 
-        <div className="max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3 ">
+        <div className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3  ">
           <Image
             className="max-sm:w-[400px] max-md:p-3 "
             src={Values}
@@ -312,8 +316,8 @@ const Services = () => {
           <div>
             <h1
               className={` ${
-                theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
-              }  font-merriweather pt-3 text-[18px] max-md:p-3  `}
+                theme === "dark" ? "text-white font-bold" : "text-[#1B396E]"
+              }  font-merriweather text-[18px] max-md:p-3  `}
             >
               {ServicesLang[language].subservice4service2}
             </h1>
@@ -324,76 +328,76 @@ const Services = () => {
             >
               {ServicesLang[language].subservice4service2_desc}
             </p>
-            <div>
-              <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-                {ServicesLang[language].viewmore}
-              </button>
-            </div>
           </div>
         </div>
       </section>
 
       {/* installation CCTV cameras  service section content*/}
-      <div className="w-[100%] h-full  max-md:bg-[#BEB9B9] max-lg:bg[#BEB9B9] px-20 pb-2  max-md:px-5 mt-0  ">
-        <div>
+      <div
+        id="service3"
+        className="pb-5 md:pb-10 w-[100%] h-full   max-lg:bg[#BEB9B9] px-20  max-md:px-5 mt-0"
+      >
+        <div className="">
           <h1
             className={` ${
               theme === "dark" ? "text-gray-300" : "text-[#2dc77c]"
-            }  max-lg:ml-0 font-merriweather text-10px text-4xl text-center  max-md:ml-0  py-3`}
+            }  max-lg:ml-0  font-merriweather text-10px text-4xl text-center  max-md:ml-0  py-3 border-t-2  `}
           >
             {ServicesLang[language].service3}
           </h1>
           <p
             className={` ${
-              theme === "dark" ? "text-gray-300" : ""
+              theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
             }  max-lg:ml-0  font-merriweather pb-3 text-md  max-md:ml-0  `}
           >
             {ServicesLang[language].service3_desc}
           </p>
+          <a
+            href="/Contactus"
+            className="bg-[#1B396E] hover:bg-teal-600 rounded   p-2  block w-fit mx-auto text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]"
+          >
+            Secure Your Premises
+          </a>
         </div>
-        <section>
-          <section className="flex flex-row gap-5 max-sm:flex-col max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3">
+        <section className="space-y-5">
+          <section className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3  ">
             <Image
-              className="max-md:w-[400px] max-lg:w-[500px] max-md:p-3"
-              src={services}
+              className="max-sm:w-[400px] max-md:p-3 "
+              src={Values}
               alt="My Image"
-              width={550}
-              height={300}
+              width={250}
+              height={250}
             />
             <div data-aos="fade-up">
               <h1
                 className={` ${
-                  theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+                  theme === "dark" ? "text-white font-bold" : "text-[#1B396E]"
                 }  max-md:p-3  font-merriweather text-[18px] max-lg:font-sans `}
               >
                 {ServicesLang[language].subservice1service3}
               </h1>
               <p
                 className={` ${
-                  theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+                  theme === "dark" ? "text-gray-300" : ""
                 }  pt-2 font-roboto max-lg:font-sans  max-md:p-3 `}
               >
                 {ServicesLang[language].subservice1service3_desc}
               </p>
-              <div>
-                <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-                  {ServicesLang[language].viewmore}
-                </button>
-              </div>
             </div>
           </section>
-          <section className="flex flex-row gap-5 max-sm:flex-col max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3">
+
+          <section className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3  ">
             <Image
-              className="max-md:w-[400px] max-lg:w-[500px] max-md:p-3"
-              src={services}
+              className="max-sm:w-[400px] max-md:p-3"
+              src={Values}
               alt="My Image"
-              width={550}
-              height={300}
+              width={250}
+              height={250}
             />
             <div data-aos="fade-up">
               <h1
                 className={` ${
-                  theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+                  theme === "dark" ? "text-white font-bold" : "text-[#1B396E]"
                 } max-md:p-3  font-merriweather text-[18px] max-lg:font-sans `}
               >
                 {ServicesLang[language].subservice4service3}
@@ -405,161 +409,136 @@ const Services = () => {
               >
                 {ServicesLang[language].subservice4service3_desc}
               </p>
-              <div>
-                <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-                  {ServicesLang[language].viewmore}
-                </button>
-              </div>
             </div>
           </section>
-          <section className="flex flex-row gap-5 max-sm:flex-col max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3">
+
+          <section className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3  ">
             <Image
-              className="max-md:w-[400px] max-lg:w-[500px] max-md:p-3"
-              src={services}
+              className="max-sm:w-[400px] max-md:p-3"
+              src={Values}
               alt="My Image"
-              width={550}
-              height={300}
+              width={250}
+              height={250}
             />
             <div data-aos="fade-up">
               <h1
                 className={` ${
-                  theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+                  theme === "dark" ? "text-white font-bold" : "text-[#1B396E]"
                 }  max-md:p-3  font-merriweather text-[18px] max-lg:font-sans `}
               >
                 {ServicesLang[language].subservice2service3}
               </h1>
               <p
                 className={` ${
-                  theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+                  theme === "dark" ? "text-gray-300" : ""
                 } pt-2 font-roboto max-lg:font-sans  max-md:p-3 `}
               >
                 {ServicesLang[language].subservice2service3_desc}
               </p>
-              <div>
-                <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-                  {ServicesLang[language].viewmore}
-                </button>
-              </div>
             </div>
           </section>
-          <section className="flex flex-row gap-5 max-sm:flex-col max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3">
+
+          <section className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3  ">
             <Image
-              className="max-md:w-[400px] max-lg:w-[500px] max-md:p-3"
-              src={services}
+              className="max-sm:w-[400px] max-md:p-3"
+              src={Values}
               alt="My Image"
-              width={550}
-              height={300}
+              width={250}
+              height={250}
             />
             <div data-aos="fade-up">
               <h1
                 className={` ${
-                  theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+                  theme === "dark" ? "text-white font-bold" : "text-[#1B396E]"
                 }  max-md:p-3  font-merriweather text-[18px] max-lg:font-sans `}
               >
                 {ServicesLang[language].subservice3service3}
               </h1>
               <p
                 className={`  ${
-                  theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+                  theme === "dark" ? "text-gray-300" : ""
                 }  pt-2 font-roboto max-lg:font-sans  max-md:p-3 `}
               >
                 {ServicesLang[language].subservice3service3_desc}
               </p>
-              <div>
-                <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-                  {ServicesLang[language].viewmore}
-                </button>
-              </div>
             </div>
           </section>
-          <section className="flex flex-row gap-5 max-sm:flex-col max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3">
+
+          <section className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3  ">
             <Image
-              className="max-md:w-[400px] max-lg:w-[500px] max-md:p-3"
-              src={services}
+              className="max-sm:w-[400px] max-md:p-3"
+              src={Values}
               alt="My Image"
-              width={550}
-              height={300}
+              width={250}
+              height={250}
             />
             <div data-aos="fade-up">
               <h1
                 className={` ${
-                  theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+                  theme === "dark" ? "text-white font-bold" : "text-[#1B396E]"
                 }  max-md:p-3  font-merriweather text-[18px] max-lg:font-sans `}
               >
                 {ServicesLang[language].subservice4service3}
               </h1>
               <p
                 className={`  ${
-                  theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+                  theme === "dark" ? "text-gray-300" : ""
                 }  pt-2 font-roboto max-lg:font-sans  max-md:p-3 `}
               >
                 {ServicesLang[language].subservice4service3_desc}
               </p>
-              <div>
-                <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-                  {ServicesLang[language].viewmore}
-                </button>
-              </div>
             </div>
           </section>
-          <section className="flex flex-row gap-5 max-sm:flex-col max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3">
+
+          <section className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3  ">
             <Image
-              className="max-md:w-[400px] max-lg:w-[500px] max-md:p-3"
-              src={services}
+              className="max-sm:w-[400px] max-md:p-3"
+              src={Values}
               alt="My Image"
-              width={550}
-              height={300}
+              width={250}
+              height={250}
             />
             <div data-aos="fade-up">
               <h1
                 className={` ${
-                  theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+                  theme === "dark" ? "text-white font-bold" : "text-[#1B396E]"
                 }  max-md:p-3  font-merriweather text-[18px] max-lg:font-sans `}
               >
                 {ServicesLang[language].subservice5service3}
               </h1>
               <p
                 className={`  ${
-                  theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+                  theme === "dark" ? "text-gray-300" : ""
                 }  pt-2 font-roboto max-lg:font-sans  max-md:p-3 `}
               >
                 {ServicesLang[language].subservice5service3_desc}
               </p>
-              <div>
-                <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-                  {ServicesLang[language].viewmore}
-                </button>
-              </div>
             </div>
           </section>
-          <section className="flex flex-row gap-5 max-sm:flex-col max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3">
+
+          <section className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3  ">
             <Image
-              className="max-md:w-[400px] max-lg:w-[500px] max-md:p-3"
-              src={services}
+              className="max-sm:w-[400px] max-md:p-3"
+              src={Values}
               alt="My Image"
-              width={550}
-              height={300}
+              width={250}
+              height={250}
             />
             <div data-aos="fade-up">
               <h1
                 className={` ${
-                  theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+                  theme === "dark" ? "text-white font-bold" : "text-[#1B396E]"
                 }  max-md:p-3  font-merriweather text-[18px] max-lg:font-sans `}
               >
                 {ServicesLang[language].subservice6service3}
               </h1>
               <p
                 className={`  ${
-                  theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+                  theme === "dark" ? "text-gray-300" : ""
                 }  pt-2 font-roboto max-lg:font-sans  max-md:p-3 `}
               >
                 {ServicesLang[language].subservice6service3_desc}
               </p>
-              <div>
-                <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-                  {ServicesLang[language].viewmore}
-                </button>
-              </div>
             </div>
           </section>
         </section>
