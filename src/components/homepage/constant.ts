@@ -1,27 +1,24 @@
 export const posts = [
   {
-    image:
-      "https://images.pexels.com/photos/25811334/pexels-photo-25811334/free-photo-of-close-up-of-a-red-rose-growing-a-garden.jpeg",
     title: "Cyber Security Training",
     id: "#service1",
     content:
       "Equip your self with cutting-edge skills from seasoned professionals",
+      imageSrc: "/image/card1.jpg",
   },
   {
-    image:
-      "https://images.pexels.com/photos/25811334/pexels-photo-25811334/free-photo-of-close-up-of-a-red-rose-growing-a-garden.jpeg",
     title: "Cyber Security Consulting",
     id: "#service2",
     content:
       "Gain peace of mind with our tailored cybersecurity strategies for businesses and organizations.",
+      imageSrc: "/image/card2.jpg",
   },
   {
-    image:
-      "https://images.pexels.com/photos/25811334/pexels-photo-25811334/free-photo-of-close-up-of-a-red-rose-growing-a-garden.jpeg",
-    title: "CCTV Camera Solution",
+    title: "CCTV Camera Security Solution",
     id: "#service3",
     content:
       "enhance your security with our advanced surveillance systems, ensuring safety at every turn.",
+      imageSrc: "/image/card3.png",
   },
 ];
 
@@ -112,11 +109,11 @@ export const countries = [
   {
     name: "RWANDA",
     location: "KN 4 Ave, Kigali, Rwanda",
-    contact: "+250795305033",
+    contact: "+250-795-305-033",
   },
   {
     name: "CAMEROON",
     location: "Checkpoint Molyko, Buea, Cameroon",
-    contact: "+237691181569 / +237670-93-57-21",
+    contact: "+237-691-181-569",
   },
 ];

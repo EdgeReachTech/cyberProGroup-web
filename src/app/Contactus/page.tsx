@@ -85,6 +85,7 @@ const Contactus = () => {
     <>
       {/* SEO metadata for the contact page */}
       <Head>
+      <link rel="icon" href="src/app/favicon.ico" /> 
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />

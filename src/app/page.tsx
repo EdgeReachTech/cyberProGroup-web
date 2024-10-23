@@ -113,14 +113,14 @@ const Home = () => {
           theme === "dark" ? "text-gray-300" : "text-white"
         }`}
         style={{
-          backgroundImage: `url('https://images.pexels.com/photos/5380590/pexels-photo-5380590.jpeg')`,
+          backgroundImage: `url('/image/securityy.png')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
       >
         <div className={`flex flex-col gap-2 lg:gap-5 $`}>
-          <p className="text-[#1ABC9C] lg:text-[48px] text-[28px] text-center">
+          <p className="text-[#c3f52f] lg:text-[48px] text-[28px] text-center">
             {data.heroTitle}
           </p>
           <p
@@ -171,8 +171,8 @@ const Home = () => {
             >
               <div className="flex flex-col gap-2 text-center">
                 <Image
-                  src="https://images.pexels.com/photos/5380590/pexels-photo-5380590.jpeg"
-                  alt="cyber"
+                  src={post.imageSrc} 
+                  alt={post.title} 
                   width={90}
                   height={90}
                   className="w-full h-48 object-cover"
@@ -237,8 +237,8 @@ const Home = () => {
           </div>
           <div className="mt-4 md:mt-0 md:ml-8">
             <Image
-              src="https://images.pexels.com/photos/5240548/pexels-photo-5240548.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt="CyberPro"
+              src="/image/ab.jpg"
+              alt="cyber pro CEO cyber best cybersecurity person"
               width={90}
               height={90}
               className="w-[300px] md:w-[400px] h-[300px] md:h-[400px] object-cover"
@@ -305,7 +305,7 @@ const Home = () => {
         <div
           className=" bg-cover bg-center w-full  h-fit lg:h-[730px] "
           style={{
-            backgroundImage: `url('https://images.pexels.com/photos/8134239/pexels-photo-8134239.jpeg?auto=compress&cs=tinysrgb&w=600')`,
+            backgroundImage: `url('/image/fiance.jpg')`,
           }}
         >
           <div className="flex flex-col justify-center items-center text-center md:text-left m-auto">
@@ -602,7 +602,7 @@ const Home = () => {
         <div
           className="w-full h-auto mt-16 bg-cover bg-center "
           style={{
-            backgroundImage: `url('https://media.istockphoto.com/id/1292545007/photo/female-hands-using-smartphone-while-sitting-in-home-office-room.jpg?s=612x612&w=0&k=20&c=x9Umo0bYowtiWt849JWZ3XZK-IgxbbsHUBU8k9siinE=')`,
+            backgroundImage: `url('/image/cont.jpg')`,
           }}
         >
           <h1 className="w-[265px] h-[60.57px] font-[800] text-[24px] sm:text-[36px] text-[#1ABC9C] text-center m-auto">
