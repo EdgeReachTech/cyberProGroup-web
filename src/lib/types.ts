@@ -1,5 +1,5 @@
 export interface Project {
-  Image: string;
+  image: string;
   title: string;
   content: string;
   timeRange: string;

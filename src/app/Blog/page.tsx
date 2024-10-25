@@ -53,7 +53,7 @@ const BlogPage = () => {
   return (
     <div className={`${theme === "dark" ? "bg-gray-800 " : "bg-white"} `}>
       <section
-        className={`h-fit lg:h-screen pb-10 relative  pt-52 -mb-32 lg:pl-[50px] pl-[5px] space-y-3 lg:space-y-5 ${
+        className={`h-fit lg:h-screen pb-10 relative  pt-52  lg:pl-[50px] pl-[5px] space-y-3 lg:space-y-5 ${
           theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-gray-300"
         }`}
         style={{
@@ -76,6 +76,7 @@ const BlogPage = () => {
         </p>
 
         <div className="z-30 flex items-center lg:w-[737px] h-10 lg:h-[65px] gap-5 overflow-hidden border rounded-lg border-white bg-[#1B396E]">
+          {/* @ts-expect-error error */}
           <CiSearch className="w-7 h-7 ml-5" />
           <input
             type="text"
@@ -90,7 +91,7 @@ const BlogPage = () => {
           />
         </div>
       </section>
-
+   <section>
       {filteredBlogs.length === 0 ? (
         <div
           className={`text-center py-10 ${
@@ -103,8 +104,8 @@ const BlogPage = () => {
         </div>
       ) : (
         filteredBlogs.map((blog, index) => (
-          <section className="pb-10" key={index}>
-            <div className="flex items-center flex-col gap-16 space-y-3 lg:flex-row lg:pr-5">
+   
+            <div key={index} className="flex  items-center flex-col-reverse pb-10 gap-16 space-y-3 lg:flex-row lg:pr-5">
               <div className="left pb-5 pl-5 space-y-3">
                 <div className="flex items-center gap-3">
                   <hr
@@ -142,9 +143,10 @@ const BlogPage = () => {
                 />
               </div>
             </div>
-          </section>
+         
         ))
       )}
+      </section>
     </div>
   );
 };
