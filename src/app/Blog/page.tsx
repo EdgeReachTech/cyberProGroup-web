@@ -58,7 +58,7 @@ const BlogPage = () => {
         }`}
         style={{
           backgroundImage:
-            "url('https://images.pexels.com/photos/5380613/pexels-photo-5380613.jpeg?auto=compress&cs=tinysrgb&w=600')",
+            "url('/image/blo.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -69,7 +69,7 @@ const BlogPage = () => {
           {language === "en" ? "Our Blog" : "Notre Blog"}
         </h1>
 
-        <p className="text-[14px] lg:text-[20px] w-full lg:w-[500px] pb-5 lg:pb-20 pr-20 lg:pr-0">
+        <p className="text-[14px] lg:text-[20px] text-[#1bfaeb] w-full lg:w-[500px] pb-5 lg:pb-20 pr-20 lg:pr-0">
           {language === "en"
             ? "We're excited to share the latest insights, tips, and industry updates with you. Whether you're here for cybersecurity advice, consultancy guidance, or the latest in camera systems, we've got you covered. Stay informed, stay secure, and enjoy exploring our articles!"
             : "Nous sommes ravis de partager avec vous les dernières informations, conseils et mises à jour du secteur. Que vous soyez ici pour des conseils en matière de cybersécurité, des conseils ou les derniers systèmes de caméra, nous avons ce qu'il vous faut. Restez informé, restez en sécurité et profitez de nos articles !"}

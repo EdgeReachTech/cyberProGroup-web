@@ -1,9 +1,7 @@
 "use client";
+import Head from "next/head";
 import Image from "next/image";
 import { Team } from "@/types/types";
-import House from "../../Images/House.jpeg";
-import myImage from "../../Images/myImage.jpeg";
-import Values from "../../Images/Values.jpg";
 import { useAppContext } from "@/context/appContext";
 import { useEffect, useState } from "react";
 import { AboutUsLang } from "@/lib/languageAbout";
@@ -17,6 +15,10 @@ const Aboutus = () => {
   const { language, theme } = useAppContext();
   const [team, setTeam] = useState<Team[]>([]);
   const [isLoadingTeam, setIsLoadingTeam] = useState(false);
+  const title = "About CyberPro Group - Leading Cybersecurity Solutions"; 
+const description = "CyberPro Group is dedicated to enhancing online safety through professional cybersecurity training, expert consulting, and CCTV security solutions. Learn about our mission and impact in the global cybersecurity landscape."; 
+const keywords = "CyberPro Group, cybersecurity training, CyberPro Academy, cybersecurity consulting, CCTV security solutions, online safety, Africa, risk mitigation, information security"; 
+
 
   const fetchData = async (
     endpoint: string,
@@ -39,12 +41,20 @@ const Aboutus = () => {
   }, []);
 
   return (
+    <>
+      {/* SEO metadata for this page */}
+      <Head>
+      <link rel="icon" href="src/app/favicon.ico" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
+      </Head>
     <div className={`${theme === "dark" ? "bg-slate-700" : "bg-white"} pb-10`}>
       <section
         className="relative pt-52 pb-32"
         style={{
           backgroundImage:
-            "url('https://images.pexels.com/photos/5380613/pexels-photo-5380613.jpeg?auto=compress&cs=tinysrgb&w=600')",
+            "url('/image/ab.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -53,14 +63,14 @@ const Aboutus = () => {
         <div className="text-center pt-16 pb-3">
           <h2
             className={`text-6xl ${
-              theme === "dark" ? "text-teal-500" : "text-[#1B396E]"
+              theme === "dark" ? "text-teal-500" : "text-[#FFFFFF]"
             }`}
           >
             {AboutUsLang[language].title}
           </h2>
           <p
             className={`text-2xl ${
-              theme === "dark" ? "text-teal-500" : "text-[#1B396E]"
+              theme === "dark" ? "text-teal-500" : "text-[#1ABC9C]"
             }`}
           >
             {AboutUsLang[language].subtitle}
@@ -72,8 +82,8 @@ const Aboutus = () => {
         <section className="flex flex-col md:flex-row gap-5 my-10 items-start">
           <Image
             className="w-full md:w-[300px]"
-            src={myImage}
-            alt="My Image"
+            src="/image/1.svg"
+            alt="Vision of cyberpro group your best cyber security company"
             width={300}
             height={300}
           />
@@ -100,8 +110,8 @@ const Aboutus = () => {
         <section className="flex flex-col md:flex-row gap-5 my-10 items-start">
           <Image
             className="w-full md:w-[400px]"
-            src={House}
-            alt="House Image"
+            src="/image/2.svg"
+            alt="mission of cyberpro group best IT cyber security, hacking company"
             width={400}
             height={300}
           />
@@ -128,8 +138,8 @@ const Aboutus = () => {
         <section className="flex flex-col md:flex-row gap-5 my-10 items-start">
           <Image
             className="w-full md:w-[300px]"
-            src={Values}
-            alt="Values Image"
+            src="/image/3.svg"
+            alt="Values of cyber pro group "
             width={300}
             height={300}
           />
@@ -162,8 +172,8 @@ const Aboutus = () => {
         <section className="flex flex-col md:flex-row gap-5 my-10 items-start">
           <Image
             className="w-full md:w-[300px]"
-            src={Values}
-            alt="Values Image"
+            src="/image/4.svg"
+            alt="ojectives of cyberpro group"
             width={300}
             height={300}
           />
@@ -237,6 +247,7 @@ const Aboutus = () => {
         </>
       </div>
     </div>
+    </>
   );
 };
 

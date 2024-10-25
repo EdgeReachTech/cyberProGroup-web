@@ -41,7 +41,7 @@ const Footer = () => {
     <div
       className=" p-5"
       style={{
-        backgroundImage: `url('https://images.pexels.com/photos/5380590/pexels-photo-5380590.jpeg')`,
+        backgroundImage: `url('/image/footer.jpg')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

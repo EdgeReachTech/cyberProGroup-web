@@ -1,4 +1,5 @@
 "use client";
+import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import shape from "../../assets/shape12";
@@ -12,6 +13,10 @@ const CardList: React.FC = () => {
   const { theme } = useAppContext();
   const [, setIsLoadingPortifolio] = useState(false);
   const [portfolio, setPortfolio] = useState<Project[]>([]);
+  const title = "CyberPro Group - Your Partner in Cybersecurity Solutions"; 
+const description = "CyberPro Group offers professional cybersecurity training, expert consulting services, and advanced CCTV security solutions to help organizations enhance their online safety."; 
+const keywords = "CyberPro Group, cybersecurity solutions, cybersecurity training, CyberPro Academy, cybersecurity consulting, CCTV security solutions, online safety, risk mitigation"; 
+
 
   const fetchData = async (
     endpoint: string,
@@ -35,6 +40,13 @@ const CardList: React.FC = () => {
   }, []);
 
   return (
+    <>
+      {/* SEO metadata for the homepage page */}
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
+      </Head>
     <div
       className={`${
         theme === "dark"
@@ -113,6 +125,7 @@ const CardList: React.FC = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 
