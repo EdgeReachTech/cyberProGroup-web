@@ -103,6 +103,7 @@ const Home = () => {
     <>
       {/* SEO metadata for the homepage page */}
       <Head>
+      <link rel="canonical" href="https://www.cyberprogroup.com/" />
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
@@ -175,6 +176,7 @@ const Home = () => {
                   alt={post.title} 
                   width={90}
                   height={90}
+                  quality={100}
                   className="w-full h-48 object-cover"
                 />
                 <h2 className="font-bold text-2xl">{post.title}</h2>
@@ -237,10 +239,11 @@ const Home = () => {
           </div>
           <div className="mt-4 md:mt-0 md:ml-8">
             <Image
-              src="/image/ab.jpg"
+              src="/image/ab2.svg"
               alt="cyber pro CEO cyber best cybersecurity person"
               width={90}
               height={90}
+              quality={100}
               className="w-[300px] md:w-[400px] h-[300px] md:h-[400px] object-cover"
             />
           </div>

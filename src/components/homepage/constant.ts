@@ -4,21 +4,21 @@ export const posts = [
     id: "#service1",
     content:
       "Equip your self with cutting-edge skills from seasoned professionals",
-      imageSrc: "/image/card1.jpg",
+      imageSrc: "/image/c1.svg",
   },
   {
     title: "Cyber Security Consulting",
     id: "#service2",
     content:
       "Gain peace of mind with our tailored cybersecurity strategies for businesses and organizations.",
-      imageSrc: "/image/card2.jpg",
+      imageSrc: "/image/c2.svg",
   },
   {
     title: "CCTV Camera Security Solution",
     id: "#service3",
     content:
       "enhance your security with our advanced surveillance systems, ensuring safety at every turn.",
-      imageSrc: "/image/card3.png",
+      imageSrc: "/image/1729704735.jpg",
   },
 ];
 
