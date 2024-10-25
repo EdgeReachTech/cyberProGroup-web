@@ -104,7 +104,7 @@ const Footer = () => {
                 const Icon = contact.icon;
                 return (
                   <div key={index}>
-                    <div className="contacts flex justify-between md:items-center   gap-2">
+                    <div className="contacts flex justify-between md:items-start   gap-2">
                       <p className="min-w-[100px]">{contact.country}</p>
                       <div className="flex items-center gap-2">
                         <p>
