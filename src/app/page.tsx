@@ -48,7 +48,8 @@ const Home = () => {
   const [isLoadingBlog, setIsLoadingBlog] = useState(false);
   const [isLoadingTestimony, setIsLoadingtestimony] = useState(false);
   const [, setIsLoadingRating] = useState(false);
-  const [hoveredStar, setHoveredStar] = useState(0);
+  const [value, setValue] = useState(0);
+  const[isRating,setIsRating]=useState(false)
   const getPercentage = (arr: { value: number }[], target: number): number => {
     const total = arr.length;
     const count = arr.filter((rate) => rate.value === target).length;
@@ -75,14 +76,18 @@ const Home = () => {
       setLoadingFunc(false);
     }
   };
-  const handleRate = async (value: number) => {
+  const handleRate = async () => {
     try {
+      setIsRating(true)
       await axios.post(`${BASE_URL}/testimony/rate`, {
         value,
       });
       fetchData("testimony/rate", setRating, setIsLoadingRating);
     } catch (error) {
       console.log(error);
+    }
+    finally{
+      setIsRating(false)
     }
   };
 
@@ -529,17 +534,16 @@ const Home = () => {
               {Array.from({ length: 5 }, (_, index) => (
                 <IoStarSharp
                   key={index}
-                  onClick={() => handleRate(index + 1)}
-                  onMouseEnter={() => setHoveredStar(index + 1)}
-                  onMouseLeave={() => setHoveredStar(0)}
+                  onClick={() => setValue(index+1)}
                   className={`w-[40px] sm:w-[54px] h-[40px] sm:h-[54px] ${
-                    index < (hoveredStar || 0)
+                    index < (value || 0)
                       ? "text-yellow-300"
                       : "text-gray-300"
                   }`}
                 />
               ))}
             </div>
+            <button onClick={()=>handleRate()} disabled={value===0||isRating} className="bg-blue-600 rounded p-2 hover:bg-blue-500 disabled:bg-blue-300 text-white">Rate</button>
           </div>
         </div>
 
