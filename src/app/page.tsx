@@ -538,7 +538,7 @@ const Home = () => {
                 />
               ))}
             </div>
-            <button disabled={value==0?true:false}   className={`${value==0?'bg-blue-500 text-[#7e7b7b]':'bg-blue-600 text-white hover:bg-blue-800 '} rounded `} onClick={()=>handleRate()}>rate</button>
+            <button disabled={value==0?true:false}   className={`${value==0?'bg-blue-500 text-[#7e7b7b]':'bg-blue-600 text-white hover:bg-blue-800 '} rounded mx-auto w-fit p-2 `} onClick={()=>handleRate()}>rate</button>
           </div>
         </div>
 
