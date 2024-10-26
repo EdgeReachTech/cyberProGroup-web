@@ -80,7 +80,7 @@ const keywords = "CyberPro Group, cybersecurity solutions, cybersecurity trainin
                   <p className="text-[10px] font-light text-gray-600 italic">
                     Uploaded on:{""}
                     <span className="font-bold text-[#1abc9c] transition-all duration-300 ease-in-out hover:text-black">
-                      {new Date(project.createdAt).toLocaleTimeString()}
+                      {new Date(project.createdAt).toLocaleDateString()}
                     </span>
                   </p>
                 </div>
@@ -110,9 +110,9 @@ const keywords = "CyberPro Group, cybersecurity solutions, cybersecurity trainin
                     Project Summary
                   </h1>
                   <p
-                    className={`${
-                      theme === "dark" ? "text-black" : "text-white"
-                    }`}
+                    className={`
+                     "text-white"
+                    `}
                   >
                     {project.content}
                   </p>
@@ -120,7 +120,7 @@ const keywords = "CyberPro Group, cybersecurity solutions, cybersecurity trainin
               </div>
             </div>
 
-            {/* Add more Card components as needed */}
+          
           </div>
         ))}
       </div>
