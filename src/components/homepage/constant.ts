@@ -107,6 +107,11 @@ export const countries = [
     contact: "+1 514-452-4048",
   },
   {
+    name: "USA",
+    location: "USA",
+    contact: "+1 (302) 513-5995",
+  },
+  {
     name: "RWANDA",
     location: "KN 4 Ave, Kigali, Rwanda",
     contact: "+250-795-305-033",

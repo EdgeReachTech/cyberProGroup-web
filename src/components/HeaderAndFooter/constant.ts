@@ -45,6 +45,11 @@ export const Locations = [
     location: IoLocation,
     street: "19 Grenfell Crescent, Ottawa ON, Canada K2G0G3",
   },
+  {
+    country: "USA",
+    location: IoLocation,
+    street: "USA",
+  },
 
   {
     country: "RWANDA",
@@ -59,6 +64,11 @@ export const Locations = [
 ];
 
 export const Contacts = [
+  {
+    country: "USA",
+    icon: FaPhoneVolume,
+    phoneNumber: "+1 (302) 513-5995",
+  },
   {
     country: "CANADA",
     icon: FaPhoneVolume,
