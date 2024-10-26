@@ -560,7 +560,7 @@ const Home = () => {
           {isLoadingTeam ? (
             SkeletonTeam
           ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mx-auto  w-fit ">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mx-auto w-full  ">
               {team && team.length > 0
                 ? team.map((member, index) => (
                     <div
