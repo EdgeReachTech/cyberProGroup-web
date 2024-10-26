@@ -1,15 +1,15 @@
 "use client";
+import Head from "next/head";
 import Image from "next/image";
-import download from "../../Images/download.jpeg";
-import MyImagee from "../../Images/MyImagee.jpeg";
-import Teach from "../../Images/Teach.jpg";
-import Values from "../../Images/Values.jpg";
 import { useAppContext } from "@/context/appContext";
 import { ServicesLang } from "@/lib/languageService";
 import { useEffect } from "react";
 
 const Services = () => {
   const { language, theme } = useAppContext();
+  const title = "CyberPro Group Services - Comprehensive Cybersecurity Solutions"; 
+  const description = "Explore the services offered by CyberPro Group, including expert cybersecurity training, consulting for organizations, and advanced CCTV security solutions to enhance online safety."; 
+  const keywords = "CyberPro Group services, cybersecurity training, CyberPro Academy, cybersecurity consulting, CCTV security solutions, online safety, risk mitigation, information security"; 
 
   useEffect(() => {
     document.addEventListener("DOMContentLoaded", () => {
@@ -27,12 +27,20 @@ const Services = () => {
   }, []);
 
   return (
+    <>
+      {/* SEO metadata for the services page */}
+      <Head>
+      <link rel="icon" href="src/app/favicon.ico" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
+      </Head>
     <div className={`${theme === "dark" ? "bg-slate-700" : ""}   `}>
       <section
         className="  max-md:w-screen  h-auto relative -top-36  pt-64 pb-32 leading-10 -mb-32 lg:pl-[50px]  pl-[5px] "
         style={{
           backgroundImage:
-            "url('https://images.pexels.com/photos/5380613/pexels-photo-5380613.jpeg?auto=compress&cs=tinysrgb&w=600')",
+            "url('/image/ser.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -41,14 +49,14 @@ const Services = () => {
         <div className=" h-auto pb-3 pt-16  max-md:w-full max-md:p-0  ">
           <h2
             className={`${
-              theme === "dark" ? "text-teal-500" : "text-[#1B396E]"
+              theme === "dark" ? "text-teal-500" : "text-[#ffffff]"
             } max-md:text-4xl pt-10  max-md:pl-3 pl-10 text-6xl`}
           >
             {ServicesLang[language].title}
           </h2>
           <p
             className={` ${
-              theme === "dark" ? "text-teal-500" : "text-[#1B396E]"
+              theme === "dark" ? "text-teal-500" : "text-[#1ABC9C]"
             } max-md:pl-3 pt-5 pl-10 text-2xl`}
           >
             {ServicesLang[language].description}
@@ -91,8 +99,8 @@ const Services = () => {
         <section className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14 max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black  max-lg:p-3 max-md:p-3 mt-3 ">
           <Image
             className="max-sm:w-[400px] max-md:p-3"
-            src={Teach}
-            alt="My Image"
+            src="/image/co.jpg"
+            alt="cyberpro academy student learning ethical hacking"
             width={250}
             height={250}
           />
@@ -116,7 +124,7 @@ const Services = () => {
                 href="/courses"
                 className="bg-blue-600 hover:bg-blue-800 p-2  w-fit mx-auto lg:mx-20  rounded  text-white"
               >
-                Read more
+                Read More
               </a>
             </div>
           </div>
@@ -125,8 +133,8 @@ const Services = () => {
         <section className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:mx-[-0.3em] max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3 ">
           <Image
             className="max-sm:w-[400px] max-md:p-3"
-            src={download}
-            alt="My Image"
+            src="/image/semi.jpg"
+            alt="People attending conference, seminar of cyberpro group"
             width={250}
             height={250}
           />
@@ -151,8 +159,8 @@ const Services = () => {
         <section className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14 max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:mx-[-0.3em] max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3 ">
           <Image
             className="max-sm:w-[400px] max-md:p-3"
-            src={download}
-            alt="My Image"
+            src="/image/res.jpg"
+            alt="free books about cyber security"
             width={250}
             height={250}
           />
@@ -177,8 +185,8 @@ const Services = () => {
         <section className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3 ">
           <Image
             className="max-sm:w-[400px] max-md:p-3"
-            src={download}
-            alt="My Image"
+            src="/image/cert.jpg"
+            alt="certificates of cybersecurity by cyberpro academy"
             width={250}
             height={250}
           />
@@ -225,13 +233,13 @@ const Services = () => {
           href="Contactus"
           className="bg-[#1B396E] hover:bg-teal-600 w-fit mx-auto rounded max-md:ml-3  p-2  text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]"
         >
-          Get Expert Advices
+          Get Expert Advice
         </a>
         <div className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3 ">
           <Image
             className="max-sm:w-[400px] max-md:p-3 "
-            src={Values}
-            alt="My Image"
+            src="/image/ass.jpg"
+            alt="cybersecurity consulting best consulting by cyberpro group"
             width={250}
             height={250}
           />
@@ -256,8 +264,8 @@ const Services = () => {
         <div className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3 ">
           <Image
             className="max-sm:w-[400px]"
-            src={MyImagee}
-            alt="My Image"
+            src="/image/int.jpg"
+            alt="threat intelligence cybersecurity cyberpro group"
             width={250}
             height={250}
           />
@@ -282,8 +290,8 @@ const Services = () => {
         <div className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3 ">
           <Image
             className="max-sm:w-[400px]"
-            src={MyImagee}
-            alt="My Image"
+            src="/image/third.jpg"
+            alt="risk assesment cybersecurity best company cyberpro group in risk assesment"
             width={250}
             height={250}
           />
@@ -308,8 +316,8 @@ const Services = () => {
         <div className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3  ">
           <Image
             className="max-sm:w-[400px] max-md:p-3 "
-            src={Values}
-            alt="My Image"
+            src="/image/aud.jpg"
+            alt="IT security audit best company top ten"
             width={250}
             height={250}
           />
@@ -363,8 +371,8 @@ const Services = () => {
           <section className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3  ">
             <Image
               className="max-sm:w-[400px] max-md:p-3 "
-              src={Values}
-              alt="My Image"
+              src="/image/cctv1.jpg"
+              alt="best cctv cameras company for consultation and assesment in rwanda, USA, CAMERON and ottawa"
               width={250}
               height={250}
             />
@@ -389,34 +397,8 @@ const Services = () => {
           <section className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3  ">
             <Image
               className="max-sm:w-[400px] max-md:p-3"
-              src={Values}
-              alt="My Image"
-              width={250}
-              height={250}
-            />
-            <div data-aos="fade-up">
-              <h1
-                className={` ${
-                  theme === "dark" ? "text-white font-bold" : "text-[#1B396E]"
-                } max-md:p-3  font-merriweather text-[18px] max-lg:font-sans `}
-              >
-                {ServicesLang[language].subservice4service3}
-              </h1>
-              <p
-                className={` ${
-                  theme === "dark" ? "text-gray-300" : ""
-                }  pt-2 font-roboto max-lg:font-sans  max-md:p-3 `}
-              >
-                {ServicesLang[language].subservice4service3_desc}
-              </p>
-            </div>
-          </section>
-
-          <section className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3  ">
-            <Image
-              className="max-sm:w-[400px] max-md:p-3"
-              src={Values}
-              alt="My Image"
+              src="/image/cctv3.jpg"
+              alt="best company in cctv camera installation in rwanda, cameron, canada"
               width={250}
               height={250}
             />
@@ -441,8 +423,8 @@ const Services = () => {
           <section className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3  ">
             <Image
               className="max-sm:w-[400px] max-md:p-3"
-              src={Values}
-              alt="My Image"
+              src="/image/cctv4.jpg"
+              alt="best company in rwanda, cameron to offer profesional installation"
               width={250}
               height={250}
             />
@@ -467,8 +449,8 @@ const Services = () => {
           <section className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3  ">
             <Image
               className="max-sm:w-[400px] max-md:p-3"
-              src={Values}
-              alt="My Image"
+              src="/image/cctv2.jpeg"
+              alt="best company to offer top best awesome maintenance abd support of cctv cameras in rwanda, cameron"
               width={250}
               height={250}
             />
@@ -493,8 +475,8 @@ const Services = () => {
           <section className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3  ">
             <Image
               className="max-sm:w-[400px] max-md:p-3"
-              src={Values}
-              alt="My Image"
+              src="/image/cctv5.jpg"
+              alt="best place to upgrade your cctv cameras in rwanda and cameron"
               width={250}
               height={250}
             />
@@ -519,8 +501,8 @@ const Services = () => {
           <section className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3  ">
             <Image
               className="max-sm:w-[400px] max-md:p-3"
-              src={Values}
-              alt="My Image"
+              src="/image/cctv6.jpg"
+              alt="training and internship of cctv camera best company in rwanda and camron"
               width={250}
               height={250}
             />
@@ -544,6 +526,7 @@ const Services = () => {
         </section>
       </div>
     </div>
+    </>
   );
 };
 

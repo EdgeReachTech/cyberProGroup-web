@@ -68,12 +68,12 @@ export const Contacts = [
   {
     country: "RWANDA",
     icon: FaPhoneVolume,
-    phoneNumber: "+250795305033",
+    phoneNumber: "+250-795-305-033",
   },
   {
     country: "CAMEROON",
     icon: FaPhoneVolume,
-    phoneNumber: "+237691181569/ +237670-93-57-21",
+    phoneNumber: "+237-670-935-721",
   },
 ];
 

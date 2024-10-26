@@ -53,12 +53,12 @@ const BlogPage = () => {
   return (
     <div className={`${theme === "dark" ? "bg-gray-800 " : "bg-white"} `}>
       <section
-        className={`h-fit lg:h-screen pb-10 relative  pt-52 -mb-32 lg:pl-[50px] pl-[5px] space-y-3 lg:space-y-5 ${
+        className={`h-fit lg:h-screen pb-10 relative  pt-52  lg:pl-[50px] pl-[5px] space-y-3 lg:space-y-5 ${
           theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-gray-300"
         }`}
         style={{
           backgroundImage:
-            "url('https://images.pexels.com/photos/5380613/pexels-photo-5380613.jpeg?auto=compress&cs=tinysrgb&w=600')",
+            "url('/image/blo.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -69,13 +69,14 @@ const BlogPage = () => {
           {language === "en" ? "Our Blog" : "Notre Blog"}
         </h1>
 
-        <p className="text-[14px] lg:text-[20px] w-full lg:w-[500px] pb-5 lg:pb-20 pr-20 lg:pr-0">
+        <p className="text-[14px] lg:text-[20px] text-[#1bfaeb] w-full lg:w-[500px] pb-5 lg:pb-20 pr-20 lg:pr-0">
           {language === "en"
             ? "We're excited to share the latest insights, tips, and industry updates with you. Whether you're here for cybersecurity advice, consultancy guidance, or the latest in camera systems, we've got you covered. Stay informed, stay secure, and enjoy exploring our articles!"
             : "Nous sommes ravis de partager avec vous les dernières informations, conseils et mises à jour du secteur. Que vous soyez ici pour des conseils en matière de cybersécurité, des conseils ou les derniers systèmes de caméra, nous avons ce qu'il vous faut. Restez informé, restez en sécurité et profitez de nos articles !"}
         </p>
 
         <div className="z-30 flex items-center lg:w-[737px] h-10 lg:h-[65px] gap-5 overflow-hidden border rounded-lg border-white bg-[#1B396E]">
+          {/* @ts-expect-error error */}
           <CiSearch className="w-7 h-7 ml-5" />
           <input
             type="text"
@@ -90,7 +91,7 @@ const BlogPage = () => {
           />
         </div>
       </section>
-
+   <section>
       {filteredBlogs.length === 0 ? (
         <div
           className={`text-center py-10 ${
@@ -103,8 +104,8 @@ const BlogPage = () => {
         </div>
       ) : (
         filteredBlogs.map((blog, index) => (
-          <section className="pb-10" key={index}>
-            <div className="flex items-center flex-col gap-16 space-y-3 lg:flex-row lg:pr-5">
+   
+            <div key={index} className="flex  items-center flex-col-reverse pb-10 gap-16 space-y-3 lg:flex-row lg:pr-5">
               <div className="left pb-5 pl-5 space-y-3">
                 <div className="flex items-center gap-3">
                   <hr
@@ -142,9 +143,10 @@ const BlogPage = () => {
                 />
               </div>
             </div>
-          </section>
+         
         ))
       )}
+      </section>
     </div>
   );
 };
