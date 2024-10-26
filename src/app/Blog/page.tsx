@@ -76,7 +76,7 @@ const BlogPage = () => {
         </p>
 
         <div className="z-30 flex items-center lg:w-[737px] h-10 lg:h-[65px] gap-5 overflow-hidden border rounded-lg border-white bg-[#1B396E]">
-          {/* @ts-expect-error error */}
+        
           <CiSearch className="w-7 h-7 ml-5" />
           <input
             type="text"

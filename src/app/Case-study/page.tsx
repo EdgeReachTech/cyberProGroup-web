@@ -2,7 +2,7 @@
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import shape from "../../assets/shape12";
+import shape from "../../assets/shape12.png";
 import status from "../../assets/status.png";
 import { useAppContext } from "@/context/appContext";
 import axios from "axios";
