@@ -48,7 +48,7 @@ const Home = () => {
   const [isLoadingBlog, setIsLoadingBlog] = useState(false);
   const [isLoadingTestimony, setIsLoadingtestimony] = useState(false);
   const [, setIsLoadingRating] = useState(false);
-  const [value, setValue] = useState(0);
+  const [hoveredStar, setHoveredStar] = useState(0);
   const getPercentage = (arr: { value: number }[], target: number): number => {
     const total = arr.length;
     const count = arr.filter((rate) => rate.value === target).length;
@@ -75,7 +75,7 @@ const Home = () => {
       setLoadingFunc(false);
     }
   };
-  const handleRate = async () => {
+  const handleRate = async (value: number) => {
     try {
       await axios.post(`${BASE_URL}/testimony/rate`, {
         value,
@@ -529,16 +529,17 @@ const Home = () => {
               {Array.from({ length: 5 }, (_, index) => (
                 <IoStarSharp
                   key={index}
-                  onClick={() => setValue(index + 1)}
+                  onClick={() => handleRate(index + 1)}
+                  onMouseEnter={() => setHoveredStar(index + 1)}
+                  onMouseLeave={() => setHoveredStar(0)}
                   className={`w-[40px] sm:w-[54px] h-[40px] sm:h-[54px] ${
-                    index < (value || 0)
+                    index < (hoveredStar || 0)
                       ? "text-yellow-300"
                       : "text-gray-300"
                   }`}
                 />
               ))}
             </div>
-            <button disabled={value==0?true:false}   className={`${value==0?'bg-blue-500 text-[#7e7b7b]':'bg-blue-600 text-white hover:bg-blue-800 '} rounded mx-auto w-fit p-2 `} onClick={()=>handleRate()}>rate</button>
           </div>
         </div>
 
@@ -559,7 +560,7 @@ const Home = () => {
           {isLoadingTeam ? (
             SkeletonTeam
           ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mx-auto  w-fit ">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mx-auto w-full  ">
               {team && team.length > 0
                 ? team.map((member, index) => (
                     <div
