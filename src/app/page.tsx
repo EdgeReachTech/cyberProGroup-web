@@ -83,7 +83,7 @@ const Home = () => {
         value,
       });
       fetchData("testimony/rate", setRating, setIsLoadingRating);
-    } catch (error) {
+    } catch (error) {  
       console.log(error);
     }
     finally{
