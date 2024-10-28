@@ -90,7 +90,7 @@ const Home = () => {
       setIsRating(false)
     }
   };
-
+      
   useEffect(() => {
     //@ts-expect-error error
     setData(language === "en" ? englishContent : frenchContent);
@@ -564,12 +564,12 @@ const Home = () => {
           {isLoadingTeam ? (
             SkeletonTeam
           ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mx-auto w-full  ">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 w-fit mx-auto   ">
               {team && team.length > 0
                 ? team.map((member, index) => (
                     <div
                       key={index}
-                      className="bg-[#D9D9D9] min-w-fit h-fit pb-5 rounded transform transition duration-300 hover:scale-105"
+                      className="bg-[#D9D9D9] pb-5 rounded transform transition duration-300 hover:scale-105"
                     >
                       <img
                         src={member.image}

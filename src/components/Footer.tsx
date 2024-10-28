@@ -107,7 +107,7 @@ const Footer = () => {
 
       {/* Subscribe & Social Media */}
       <div className="flex flex-col md:flex-row items-center justify-between mt-5">
-        <div className="flex items-center gap-3 mb-4 md:mb-0 w-full">
+        <div className="flex items-center gap-3 mb-4 md:mb-0 w-full bg-white rounded">
           <input
             onChange={(e) => setEmail(e.target.value)}
             placeholder={
@@ -115,7 +115,7 @@ const Footer = () => {
                 ? "Please Enter Your Email"
                 : "Veuillez entrer votre email"
             }
-            className="bg-transparent placeholder:text-[#F39C12] p-2 border rounded-l-lg focus:outline-none"
+            className="bg-transparent placeholder:text-[#F39C12] text-yellow-500 p-2  border rounded-l-lg focus:outline-none"
           />
           <button
             onClick={handleSubscribe}
