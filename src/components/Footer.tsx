@@ -107,7 +107,7 @@ const Footer = () => {
 
       {/* Subscribe & Social Media */}
       <div className="flex flex-col md:flex-row items-center justify-between mt-5">
-        <div className="flex items-center gap-3 mb-4 md:mb-0 w-full bg-white rounded">
+        <div className="flex items-center gap-3 mb-4 md:mb-0  bg-white rounded">
           <input
             onChange={(e) => setEmail(e.target.value)}
             placeholder={
