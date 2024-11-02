@@ -22,6 +22,7 @@ const merriweather = Merriweather({
 export const metadata: Metadata = {
   title: "CyberPro Group",
   description: "cyberPro Group Your Best CyberSecurity Company",
+  
 };
 
 export default function RootLayout({
