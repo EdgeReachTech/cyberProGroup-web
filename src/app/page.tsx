@@ -403,7 +403,7 @@ const Home = () => {
             </div>
             <a
               href="/Services"
-              className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-[208px] text-[15px] sm:text-[17px] text-white"
+              className="bg-[#1B396E] hover:bg-red-500 py-2 px-3 w-[208px] text-[15px] sm:text-[17px] text-white"
             >
               {data.getExpertAdvice}
             </a>
