@@ -206,7 +206,7 @@ const keywords = "CyberPro Group, cybersecurity training, CyberPro Academy, cybe
         </section>
         <>
           {isLoadingTeam ? (
-            SkeletonTeam
+            <SkeletonTeam />
           ) : (
             <div className="flex card-holder   justify-center items-center gap-6 w-full md:w-[600px] lg:w-[1000px] m-auto ">
               {team && team.length > 0

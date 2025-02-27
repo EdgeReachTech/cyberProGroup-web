@@ -109,6 +109,7 @@ const Home = () => {
    
       <Head>
       <link rel="canonical" href="https://www.cyberprogroup.com/" />
+      <link rel="icon" href="/logo.svg" />
       
 
       
@@ -550,63 +551,75 @@ const Home = () => {
           </div>
         </div>
 
-        {/* our staff  */}
-        <div className="flex flex-col  justify-center items-center text-center md:text-left m-auto mt-11">
-          <h1 className="font-[800] text-teal-500 text-[24px] sm:text-[28px] md:text-[36px]">
-            {data.ourStaffTitle}
-          </h1>
-          <p
-            className={`${
-              theme === "dark" ? "text-gray-300" : "text-black"
-            } font-[800] text-[32px] sm:text-[36px] md:text-[48px] mb-5`}
+      {/* our staff  */}
+<div className="flex flex-col justify-center items-center text-center md:text-left m-auto mt-11">
+  <h1 className="font-[800] text-teal-500 text-[24px] sm:text-[28px] md:text-[36px]">
+    {data.ourStaffTitle}
+  </h1>
+  <p
+    className={`${
+      theme === "dark" ? "text-gray-300" : "text-black"
+    } font-[800] text-[32px] sm:text-[36px] md:text-[48px] mb-5`}
+  >
+    {data.ourStaffSubtitle}
+  </p>
+</div>
+<>
+  {isLoadingTeam ? (
+    <SkeletonTeam />
+  ) : (
+    <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 w-fit mx-auto">
+      {team && team.length > 0 ? (
+        team.map((member, index) => (
+          <div
+            key={index}
+            className="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl"
           >
-            {data.ourStaffSubtitle}
-          </p>
-        </div>
-        <>
-          {isLoadingTeam ? (
-            SkeletonTeam
-          ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 w-fit mx-auto   ">
-              {team && team.length > 0
-                ? team.map((member, index) => (
-                    <div
-                      key={index}
-                      className="bg-[#D9D9D9] pb-5 rounded transform transition duration-300 hover:scale-105"
-                    >
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        width={90}
-                        height={90}
-                        className="w-full h-32 object-cover rounded-t"
-                      />
-                      <h2 className="font-bold text-[24px] text-[#1B396E]  text-center">
-                        {member.role}
-                      </h2>
-                      <p className="text-[20px] p-2 text-[#49454F] text-center">
-                        {member.name}
-                      </p>
-                      <div className="flex items-center justify-center gap-[2px]">
-                        <a href={member.linkedInProfile || "###"}>
-                          <LiaLinkedinIn className="w-6 h-6 rounded text-white bg-blue-500 hover:bg-blue-700 p-1" />
-                        </a>
-                        <a href={member.instagramProfile || "###"}>
-                          <FaInstagram className="w-6 h-6 text-white rounded bg-[#bb2a7f] hover:bg-[#e0409d] p-1 " />
-                        </a>
-                        <a href={member.twiterProfile || "###"}>
-                          <FaXTwitter className="w-6 h-6 text-white rounded bg-[#080808] hover:bg-[#0e0c0c] p-1" />
-                        </a>
-                        {/* <link href={member.f}>
-                <FaFacebook className="w-3 h-3 " />
-                </link> */}
-                      </div>
-                    </div>
-                  ))
-                : "no team info available "}
+            <div className="relative w-full aspect-[3/4] sm:aspect-[4/5] md:aspect-[3/4]">
+              <img
+                src={member.image}
+                alt={member.name}
+                className="w-full h-full object-cover object-center"
+              />
+              {/* Optional overlay for better text visibility */}
+              <div className="absolute inset-0 bg-black/10"></div>
             </div>
-          )}
-        </>
+            <div className="p-4">
+              <h2 className="font-bold text-[24px] text-[#1B396E] text-center mb-2">
+                {member.role}
+              </h2>
+              <p className="text-[20px] text-[#49454F] text-center mb-4">
+                {member.name}
+              </p>
+              <div className="flex items-center justify-center gap-2">
+                <a
+                  href={member.linkedInProfile || "###"}
+                  className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-500 hover:bg-blue-700 transition-colors"
+                >
+                  <LiaLinkedinIn className="w-5 h-5 text-white" />
+                </a>
+                <a
+                  href={member.instagramProfile || "###"}
+                  className="flex items-center justify-center w-8 h-8 rounded-full bg-[#bb2a7f] hover:bg-[#e0409d] transition-colors"
+                >
+                  <FaInstagram className="w-5 h-5 text-white" />
+                </a>
+                <a
+                  href={member.twiterProfile || "###"}
+                  className="flex items-center justify-center w-8 h-8 rounded-full bg-[#080808] hover:bg-[#0e0c0c] transition-colors"
+                >
+                  <FaXTwitter className="w-5 h-5 text-white" />
+                </a>
+              </div>
+            </div>
+          </div>
+        ))
+      ) : (
+        <p className="text-center text-gray-500">No team info available</p>
+      )}
+    </div>
+  )}
+</>
         {/* contact page */}
 
         <div
@@ -732,7 +745,7 @@ const Home = () => {
         </div>
         <>
           {isLoadingBlog ? (
-            SkeletonBlog
+            <SkeletonBlog />
           ) : (
             <div className="flex items-start justify-center w-full gap-10 mt-10 card-holder">
               {blog.slice(-3).map((blogItem, index) => (
